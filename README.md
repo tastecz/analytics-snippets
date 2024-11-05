@@ -32,5 +32,23 @@ __taste('session_storage', 'get', 'user_name');
 ```
 
 ## User data
-This functionality returns user data from a form inputs of the website. It works with the predefined arguments input from a GTM template.
+This functionality returns user data from a form inputs of the website. It works with the predefined arguments input from a GTM template that is an array and consists of another arrays. Each *subarray* had two values – name of the variable extracting from the input and a CSS selector. It can look like this:
+```
+[['email', 'name="email"'], ['postal_code', 'name="zip"']]
+```
 
+The function has an additional parameter that can restrict the CSS selectors to work only with particular form on the website. All parameters below:
+1. `user_data`
+2. GTM template input (shown above)
+3. CSS selector for restricting the form (e.g. `#contact-form`) – additional
+
+#### Example
+Let's say the GTM template input is the same as above saved in a variable `inputData` and we want to restrict extracting the values only to a form with ID `#contact-form`. Calling the function would look like this:
+```
+__taste('user_data', inputData, '#contact-form');
+```
+
+If you call this function it returns similiar array as shown above but the second variable in each array is the actual value of the user's input:
+```
+[['email', 'john.doe@gmail.com'], ['postal_code', '11000']]
+```
