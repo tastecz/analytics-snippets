@@ -7,7 +7,7 @@ The library contains 1 global variable `__taste` which is a function. Its functi
 This functionality can set and read session storage items.
 
 ### Session storage – set item
-Setting an item to session storage contains of four arguments:
+Setting an item to session storage contains four arguments:
 1. `session_storage`
 2. `set`
 3. key – name of an item that should be saved in the session storage
@@ -32,7 +32,7 @@ __taste('session_storage', 'get', 'user_name');
 ```
 
 ## User data
-This functionality returns user data from a form inputs of the website. It works with the predefined arguments input from a GTM template that is an array and consists of another arrays. Each *subarray* had two values – name of the variable extracting from the input and a CSS selector. It can look like this:
+This functionality returns user data of a form inputs of the website. It works with the predefined arguments input from a GTM template that is an array and consists of another arrays. Each *subarray* has two values – name of the variable tobe extract from the input and a simplified CSS selector of the input. It can look like this:
 ```
 [['email', 'name="email"'], ['postal_code', 'name="zip"']]
 ```
